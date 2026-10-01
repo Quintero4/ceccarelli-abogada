@@ -1,0 +1,419 @@
+/* ============================================================
+   styles.css · Cristina Ceccarelli – Abogada · abogadacristinac.com
+   Los colores y fuentes se editan en el bloque :root (sección 2).
+   ============================================================ */
+
+/* ==========================================================
+   1. TIPOGRAFÍA DE FIRMA
+   Si el archivo .ttf no existe, el navegador usa 'Great Vibes'.
+   ========================================================== */
+@font-face {
+  font-family: 'Brittany Signature';
+  src: url('fonts/brittany-signature.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================
+   2. VARIABLES DE DISEÑO (edita colores y fuentes aquí)
+   ========================================================== */
+:root {
+  --bg: #0D0D0D;
+  --bg-alt: #121212;
+  --card: #1E1E1E;
+  --text: #FFFFFF;
+  --text-soft: rgba(255, 255, 255, .72);
+  --gold: #D4AF37;
+  --gold-light: #E6CA65;
+  --gold-dark: #997A15;
+  --gold-gradient: linear-gradient(135deg, #E6CA65 0%, #D4AF37 50%, #997A15 100%);
+
+  --font-signature: 'Brittany Signature', 'Great Vibes', 'Alex Brush', cursive;
+  --font-title: 'Cinzel', 'Times New Roman', serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --header-h: 76px;
+  --max-w: 1120px;
+}
+
+/* ==========================================================
+   3. BASE
+   ========================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+.container { width: min(100% - 2.5rem, var(--max-w)); margin-inline: auto; }
+section { padding: 6.5rem 0; scroll-margin-top: var(--header-h); }
+section:nth-of-type(even) { background: var(--bg-alt); }
+
+.section-title {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  letter-spacing: .06em;
+  text-align: center;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px; height: 1px;
+  margin: 1.1rem auto 3.5rem;
+  background: var(--gold-gradient);
+}
+
+/* ==========================================================
+   4. HEADER / NAVEGACIÓN
+   ========================================================== */
+.site-header {
+  position: fixed; inset: 0 0 auto 0;
+  height: var(--header-h);
+  z-index: 100;
+  background: rgba(13, 13, 13, .92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, .22);
+}
+.header-inner {
+  height: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+.brand { display: flex; align-items: center; gap: .85rem; }
+.brand-logo { height: 46px; width: auto; }
+.brand-text { display: flex; flex-direction: column; line-height: 1; }
+.brand-name {
+  font-family: var(--font-signature);
+  font-size: 2.1rem;
+  color: var(--gold);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: .1em .15em .05em 0;
+}
+.brand-role {
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .5em;
+  color: var(--text-soft);
+  margin-top: -.15rem;
+}
+
+.nav-list { display: flex; gap: 2.4rem; list-style: none; margin: 0; padding: 0; }
+.nav-list a {
+  position: relative;
+  font-size: .85rem; font-weight: 400; letter-spacing: .08em;
+  padding: .5rem 0;
+  color: var(--text);
+  transition: color .3s;
+}
+.nav-list a::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s ease;
+}
+.nav-list a:hover, .nav-list a.active { color: var(--gold-light); }
+.nav-list a:hover::after, .nav-list a.active::after { transform: scaleX(1); }
+
+/* Botón hamburguesa (solo móvil) */
+.nav-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  background: none; border: 1px solid rgba(212, 175, 55, .4);
+  border-radius: 4px; cursor: pointer; padding: 0;
+  position: relative;
+}
+.nav-toggle span {
+  position: absolute; left: 11px; right: 11px; height: 1.5px;
+  background: var(--gold);
+  transition: transform .3s, opacity .3s, top .3s;
+}
+.nav-toggle span:nth-child(1) { top: 14px; }
+.nav-toggle span:nth-child(2) { top: 21px; }
+.nav-toggle span:nth-child(3) { top: 28px; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+/* ==========================================================
+   5. QUIÉN SOY
+   ========================================================== */
+#quien-soy { padding-top: calc(var(--header-h) + 5rem); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.about-text .signature-title {
+  font-family: var(--font-signature);
+  font-size: clamp(3.6rem, 9vw, 6.4rem);
+  line-height: 1.05;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: .1em .15em .1em 0;
+  margin-bottom: .4rem;
+}
+.about-text .lead {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  letter-spacing: .12em;
+  color: var(--gold-light);
+  margin-bottom: 2rem;
+}
+.about-text p { color: var(--text-soft); max-width: 62ch; }
+.about-text p + p { margin-top: 1.1rem; }
+
+.about-photo { position: relative; justify-self: center; width: min(100%, 400px); }
+.photo-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--gold);
+  padding: 10px;
+  background: var(--bg);
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+/* Marco desplazado: efecto sutil de profundidad */
+.about-photo::before {
+  content: "";
+  position: absolute; inset: 18px -18px -18px 18px;
+  border: 1px solid rgba(212, 175, 55, .35);
+  z-index: 0;
+  transition: inset .5s ease;
+}
+.photo-frame { z-index: 1; }
+.photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(.15) contrast(1.03);
+  background: var(--card);
+}
+.about-photo:hover .photo-frame { box-shadow: 0 18px 50px rgba(212, 175, 55, .16); }
+.about-photo:hover::before { inset: 12px -12px -12px 12px; }
+
+/* ==========================================================
+   6. ESPECIALIDADES (tarjetas que voltean)
+   ========================================================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.flip-card {
+  perspective: 1200px;
+  height: 440px;
+  cursor: pointer;
+  background: none; border: 0; padding: 0;
+  font: inherit; color: inherit; text-align: center;
+}
+.flip-inner {
+  display: block;
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.4, .2, .2, 1);
+}
+.flip-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2rem 1.75rem;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, .07);
+  transition: border-color .4s, box-shadow .4s;
+}
+.flip-front .icon { width: 54px; height: 54px; color: var(--gold); margin-bottom: 1.5rem; }
+.flip-front h3 {
+  font-family: var(--font-title);
+  font-weight: 500; font-size: 1.6rem; letter-spacing: .1em;
+}
+.flip-front .hint {
+  margin-top: 1.25rem;
+  font-size: .75rem; letter-spacing: .12em;
+  color: var(--text-soft);
+}
+.flip-back {
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(230, 202, 101, .16), transparent 65%),
+    var(--card);
+  border-color: var(--gold);
+  box-shadow: 0 0 34px rgba(212, 175, 55, .22), inset 0 0 0 1px rgba(230, 202, 101, .25);
+}
+.flip-back h3 {
+  font-family: var(--font-title);
+  font-weight: 500; font-size: 1.15rem; letter-spacing: .1em;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 1rem;
+}
+.flip-back p { font-size: .88rem; line-height: 1.65; color: var(--text-soft); }
+.flip-back ul {
+  list-style: none; margin: 1rem 0 0; padding: 0;
+  text-align: left; width: 100%;
+  font-size: .83rem; line-height: 1.5; color: var(--text);
+}
+.flip-back li { position: relative; padding-left: 1.1rem; margin-bottom: .45rem; }
+.flip-back li::before {
+  content: ""; position: absolute; left: 0; top: .55em;
+  width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg);
+}
+
+.flip-card:hover .flip-face:not(.flip-back),
+.flip-card:focus-visible .flip-face:not(.flip-back) { border-color: rgba(212, 175, 55, .6); }
+
+/* Ratón: voltea al pasar. Táctil: voltea al tocar (clase .is-flipped por JS) */
+@media (hover: hover) {
+  .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+}
+.flip-card.is-flipped .flip-inner { transform: rotateY(180deg); }
+
+/* ==========================================================
+   7. CONTACTO
+   ========================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  justify-content: center;
+  gap: 1.75rem;
+}
+.contact-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 2.75rem 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, .07);
+  transition: border-color .4s, transform .4s, box-shadow .4s;
+}
+.contact-card:hover, .contact-card:focus-visible {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(212, 175, 55, .14);
+}
+.contact-card .icon { width: 42px; height: 42px; color: var(--gold); margin-bottom: 1.25rem; }
+.contact-card h3 {
+  font-family: var(--font-title); font-weight: 500;
+  font-size: 1.1rem; letter-spacing: .12em; margin-bottom: .6rem;
+}
+.contact-card .value {
+  font-size: 1.05rem; font-weight: 400; color: var(--gold-light);
+  overflow-wrap: anywhere;
+}
+.contact-card .note { margin-top: .5rem; font-size: .8rem; color: var(--text-soft); }
+
+/* ==========================================================
+   8. DÓNDE ENCONTRARME
+   ========================================================== */
+.location-info { text-align: center; margin: -1.5rem auto 2.5rem; max-width: 56ch; color: var(--text-soft); }
+.location-info strong { color: var(--gold-light); font-weight: 500; }
+.map-frame {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, .45);
+  padding: 8px;
+  background: var(--bg);
+}
+.map-frame iframe {
+  display: block; width: 100%; height: 420px; border: 0;
+  /* Convierte el mapa claro de Google en un mapa oscuro integrado con la web */
+  filter: invert(92%) hue-rotate(180deg) grayscale(.55) contrast(.92) brightness(.9);
+}
+
+/* ==========================================================
+   9. FOOTER
+   ========================================================== */
+.site-footer {
+  background: var(--bg);
+  border-top: 1px solid rgba(212, 175, 55, .22);
+  padding: 2.5rem 0;
+  font-size: .82rem;
+  color: var(--text-soft);
+}
+.footer-inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+}
+.footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.footer-links a, .link-btn {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; color: var(--text-soft);
+  transition: color .3s;
+}
+.footer-links a:hover, .link-btn:hover { color: var(--gold-light); }
+
+/* Aviso legal (ventana emergente nativa) */
+dialog {
+  max-width: min(92vw, 620px);
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--gold);
+  padding: 2rem;
+}
+dialog::backdrop { background: rgba(0, 0, 0, .75); }
+dialog h2 { font-family: var(--font-title); font-weight: 500; color: var(--gold-light); margin-bottom: 1rem; font-size: 1.3rem; }
+dialog p { color: var(--text-soft); font-size: .92rem; margin-bottom: .9rem; }
+dialog button {
+  margin-top: .5rem; padding: .65rem 1.6rem;
+  background: transparent; color: var(--gold-light);
+  border: 1px solid var(--gold); cursor: pointer;
+  font: inherit; font-size: .85rem; letter-spacing: .08em;
+  transition: background .3s, color .3s;
+}
+dialog button:hover { background: var(--gold); color: #0D0D0D; }
+
+/* ==========================================================
+   10. RESPONSIVE
+   ========================================================== */
+@media (max-width: 960px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .flip-card:last-child { grid-column: 1 / -1; max-width: 50%; justify-self: center; width: 100%; }
+}
+
+@media (max-width: 820px) {
+  section { padding: 4.5rem 0; }
+  .nav-toggle { display: block; }
+  .main-nav {
+    position: fixed; top: var(--header-h); left: 0; right: 0;
+    background: rgba(13, 13, 13, .98);
+    border-bottom: 1px solid rgba(212, 175, 55, .3);
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s ease;
+  }
+  .main-nav.open { max-height: 320px; }
+  .nav-list { flex-direction: column; gap: 0; padding: .75rem 1.25rem 1.25rem; }
+  .nav-list a { display: block; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { width: min(78%, 340px); margin-top: 1rem; }
+}
+
+@media (max-width: 640px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .flip-card:last-child { max-width: none; }
+  .flip-card { height: 470px; }
+  .flip-face { padding: 1.5rem 1.35rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .map-frame iframe { height: 340px; }
+  .brand-logo { height: 38px; }
+  .brand-name { font-size: 1.75rem; }
+  .brand-role { letter-spacing: .4em; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}

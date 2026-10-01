@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ==========================================================
+       SEGURIDAD
+       La CSP va lo primero para que se aplique a todo lo que carga después.
+       IMPORTANTE: las etiquetas <meta> solo admiten parte de las protecciones.
+       X-Content-Type-Options y X-Frame-Options / frame-ancestors NO funcionan
+       como <meta>: se aplican de verdad en el archivo "_headers" (servidor).
+       ========================================================== -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"><!-- solo orientativo; el efecto real está en _headers -->
+
+  <!-- ==========================================================
+       SEO BÁSICO
+       ========================================================== -->
+  <title>Abogada en Sevilla (Los Remedios) | Cristina Ceccarelli</title>
+  <meta name="description" content="Abogada en Los Remedios, Sevilla. Derecho civil, regulación y despidos. Atención cercana y rigurosa. Pide tu primera consulta por teléfono o correo.">
+  <meta name="keywords" content="abogada Sevilla, abogada Los Remedios, abogada despidos Sevilla, abogada derecho civil Sevilla, despido improcedente Sevilla, herencias Sevilla, regulación, Cristina Ceccarelli">
+  <meta name="author" content="Cristina Ceccarelli">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#0D0D0D">
+
+  <!-- URL canónica y idioma -->
+  <link rel="canonical" href="https://abogadacristinac.com/">
+  <link rel="alternate" hreflang="es-ES" href="https://abogadacristinac.com/">
+  <link rel="alternate" hreflang="x-default" href="https://abogadacristinac.com/">
+
+  <!-- SEO local (Google los ignora en gran parte, pero otros buscadores los leen) -->
+  <meta name="geo.region" content="ES-AN">
+  <meta name="geo.placename" content="Sevilla">
+
+  <!-- ==========================================================
+       OPEN GRAPH (WhatsApp, Facebook, LinkedIn) Y TWITTER/X
+       Imagen recomendada: 1200 x 630 px en /images/og-cristina.jpg
+       ========================================================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Cristina Ceccarelli - Abogada">
+  <meta property="og:title" content="Cristina Ceccarelli · Abogada en Sevilla">
+  <meta property="og:description" content="Derecho civil, regulación y despidos en Los Remedios, Sevilla. Atención cercana y rigurosa.">
+  <meta property="og:url" content="https://abogadacristinac.com/">
+  <meta property="og:image" content="https://abogadacristinac.com/images/og-cristina.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cristina Ceccarelli, abogada en Sevilla">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cristina Ceccarelli · Abogada en Sevilla">
+  <meta name="twitter:description" content="Derecho civil, regulación y despidos en Los Remedios, Sevilla.">
+  <meta name="twitter:image" content="https://abogadacristinac.com/images/og-cristina.jpg">
+
+  <!-- ==========================================================
+       FAVICON (Google pide un icono cuyo tamaño sea múltiplo de 48 px)
+       ========================================================== -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- ==========================================================
+       DATOS ESTRUCTURADOS SCHEMA.ORG (JSON-LD)
+       ✏️ Sustituye los valores marcados con [ ] y revisa teléfono, email y horario.
+       Los datos deben coincidir EXACTAMENTE con la web y con Google Business Profile.
+       ========================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Attorney", "LegalService"],
+    "@id": "https://abogadacristinac.com/#abogada",
+    "name": "Cristina Ceccarelli - Abogada",
+    "alternateName": "Cristina Ceccarelli Abogada",
+    "url": "https://abogadacristinac.com/",
+    "logo": "https://abogadacristinac.com/images/logo-balanza.png",
+    "image": "https://abogadacristinac.com/images/foto-cristina.png",
+    "description": "Despacho de abogada en Los Remedios (Sevilla) especializado en derecho civil, regulación y despidos.",
+    "telephone": "+34600000000",
+    "email": "contacto@ejemplo.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[Calle y número]",
+      "addressLocality": "Sevilla",
+      "addressRegion": "Andalucía",
+      "postalCode": "41011",
+      "addressCountry": "ES"
+    },
+    "hasMap": "https://www.google.com/maps?q=Los+Remedios,+Sevilla,+Espa%C3%B1a",
+    "areaServed": [
+      { "@type": "City", "name": "Sevilla" },
+      { "@type": "AdministrativeArea", "name": "Provincia de Sevilla" }
+    ],
+    "availableLanguage": ["es"],
+    "knowsAbout": ["Derecho civil", "Regulación", "Despidos"],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Áreas de práctica",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Derecho civil",
+            "description": "Contratos, herencias y testamentos, arrendamientos, reclamación de deudas, comunidades de propietarios y responsabilidad civil."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Regulación",
+            "description": "Cumplimiento normativo, protección de datos, licencias y autorizaciones, recursos contra sanciones y procedimientos administrativos."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Despidos",
+            "description": "Revisión de cartas de despido, despidos improcedentes, nulos y objetivos, cálculo de indemnizaciones y defensa ante el juzgado de lo social."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- ==========================================================
+       FUENTES Y ESTILOS
+       ========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================
+       HEADER / NAVEGACIÓN
+       ========================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#quien-soy" class="brand" aria-label="Cristina Ceccarelli, abogada. Ir al inicio">
+        <!-- LOGO: sustituye images/logo-balanza.png por tu archivo -->
+        <img class="brand-logo" src="images/logo-balanza.png" alt="">
+        <span class="brand-text">
+          <span class="brand-name">Cristina Ceccarelli</span>
+          <span class="brand-role">ABOGADA</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#quien-soy">Quién soy</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#donde-encontrarme">Dónde encontrarme</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================
+         SECCIÓN 1 · QUIÉN SOY
+         Edita los textos dentro de los <p>.
+         ========================================================== -->
+    <section id="quien-soy">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h1 class="signature-title">Cristina Ceccarelli</h1>
+          <p class="lead">Abogada · Sevilla</p>
+
+          <!-- ✏️ TEXTO DE PRESENTACIÓN (editable) -->
+          <p>
+            Ejerzo la abogacía desde la cercanía y el rigor. Cada asunto se estudia con
+            detalle y se explica en un lenguaje claro, para que sepas en todo momento
+            en qué punto está tu caso y qué opciones tienes.
+          </p>
+          <p>
+            Mi trayectoria profesional me ha llevado a defender los intereses de particulares
+            y empresas en materia civil, regulatoria y laboral. Trabajo con tres principios:
+            honestidad sobre las posibilidades reales de cada caso, confidencialidad absoluta
+            y dedicación personal en cada expediente.
+          </p>
+          <p>
+            Mi despacho está en el barrio de Los Remedios, en Sevilla. Puedes pedir una primera
+            consulta por teléfono o por correo electrónico.
+          </p>
+        </div>
+
+        <div class="about-photo">
+          <div class="photo-frame">
+            <!-- FOTO: sustituye images/foto-cristina.png por tu archivo -->
+            <img src="images/foto-cristina.png" alt="Retrato de Cristina Ceccarelli, abogada">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN 2 · ESPECIALIDADES
+         Cada <div class="flip-card"> es una tarjeta.
+         Frente: título. Reverso: texto explicativo (editable).
+         ========================================================== -->
+    <section id="especialidades">
+      <div class="container">
+        <h2 class="section-title">Especialidades</h2>
+
+        <div class="cards-grid">
+
+          <!-- Tarjeta 1: CIVIL -->
+          <div class="flip-card" role="button" tabindex="0" aria-label="Civil. Pulsa para ver más información">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <!-- Icono: libro de leyes -->
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/>
+                  <path d="M4 5.5v16"/><path d="M9 8h7"/><path d="M9 12h5"/>
+                </svg>
+                <h3>Civil</h3>
+                <span class="hint">Toca para ver más</span>
+              </span>
+              <span class="flip-face flip-back">
+                <h3>Derecho civil</h3>
+                <!-- ✏️ Texto editable -->
+                <p>Asesoramiento y defensa en los conflictos entre particulares y empresas,
+                   desde la prevención hasta el juicio.</p>
+                <ul>
+                  <li>Contratos: revisión, redacción e incumplimientos</li>
+                  <li>Herencias, testamentos y particiones</li>
+                  <li>Arrendamientos y desahucios</li>
+                  <li>Reclamación de deudas e impagos</li>
+                  <li>Comunidades de propietarios</li>
+                  <li>Responsabilidad civil y daños</li>
+                </ul>
+              </span>
+            </span>
+          </div>
+
+          <!-- Tarjeta 2: REGULACIÓN -->
+          <div class="flip-card" role="button" tabindex="0" aria-label="Regulación. Pulsa para ver más información">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <!-- Icono: documento con sello -->
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+                  <path d="M14 3v5h5"/><path d="m9 15 2 2 4-4"/>
+                </svg>
+                <h3>Regulación</h3>
+                <span class="hint">Toca para ver más</span>
+              </span>
+              <span class="flip-face flip-back">
+                <h3>Regulación</h3>
+                <!-- ✏️ Texto editable -->
+                <p>Te ayudo a cumplir la normativa que afecta a tu actividad y a defenderte
+                   ante la Administración cuando surge un problema.</p>
+                <ul>
+                  <li>Cumplimiento normativo para empresas y autónomos</li>
+                  <li>Protección de datos (RGPD y LOPDGDD)</li>
+                  <li>Licencias, permisos y autorizaciones</li>
+                  <li>Recursos contra multas y sanciones</li>
+                  <li>Procedimientos administrativos y reclamaciones</li>
+                  <li>Consumo y relaciones con proveedores</li>
+                </ul>
+              </span>
+            </span>
+          </div>
+
+          <!-- Tarjeta 3: DESPIDOS -->
+          <div class="flip-card" role="button" tabindex="0" aria-label="Despidos. Pulsa para ver más información">
+            <span class="flip-inner">
+              <span class="flip-face flip-front">
+                <!-- Icono: maletín -->
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="7" width="18" height="13" rx="2"/>
+                  <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>
+                </svg>
+                <h3>Despidos</h3>
+                <span class="hint">Toca para ver más</span>
+              </span>
+              <span class="flip-face flip-back">
+                <h3>Despidos</h3>
+                <!-- ✏️ Texto editable -->
+                <p>Defensa de los trabajadores ante la pérdida de su empleo. El plazo para
+                   reclamar un despido es de 20 días hábiles: consulta cuanto antes.</p>
+                <ul>
+                  <li>Revisión de la carta de despido y del finiquito</li>
+                  <li>Despido improcedente, nulo y disciplinario</li>
+                  <li>Despidos objetivos y colectivos (ERE)</li>
+                  <li>Cálculo de la indemnización</li>
+                  <li>Conciliación previa y juicio en el juzgado de lo social</li>
+                  <li>Reclamación de salarios y cantidades adeudadas</li>
+                </ul>
+              </span>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN 3 · CONTACTO
+         ✏️ Cambia el teléfono en href="tel:..." y en el texto visible.
+         ✏️ Cambia el correo en href="mailto:..." y en el texto visible.
+         ========================================================== -->
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+
+        <div class="contact-grid">
+
+          <a class="contact-card" href="tel:+34600000000">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <h3>Teléfono</h3>
+            <span class="value">+34 600 000 000</span>
+            <span class="note">Toca para llamar</span>
+          </a>
+
+          <a class="contact-card" href="mailto:contacto@ejemplo.com">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-10 6L2 7"/>
+            </svg>
+            <h3>Correo electrónico</h3>
+            <span class="value">Cristinaceabogada@gmail.com</span>
+            <span class="note">Toca para escribir</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN 4 · DÓNDE ENCONTRARME
+         ✏️ Para cambiar el mapa: en Google Maps busca tu dirección exacta,
+            pulsa Compartir > Insertar un mapa y copia el nuevo src del iframe.
+         ========================================================== -->
+    <section id="donde-encontrarme">
+      <div class="container">
+        <h2 class="section-title">Dónde encontrarme</h2>
+
+        <p class="location-info">
+          Mi despacho está en el barrio de <strong>Los Remedios, Sevilla</strong>.
+          <!-- ✏️ Añade aquí la dirección exacta y el horario -->
+          Virgen del Valle, 6 · Horario de atención: lunes a viernes, de 9:00 a 18:00.
+        </p>
+
+        <div class="map-frame">
+          <iframe
+            title="Mapa de Los Remedios, Sevilla"
+            src="https://www.google.com/maps?q=Calle+Virgen+del+Valle,+6,+Los+Remedios,+Sevilla&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Cristina Ceccarelli – Abogada. Todos los derechos reservados.</p>
+      <ul class="footer-links">
+        <li><button class="link-btn" id="openLegal" type="button">Aviso legal</button></li>
+        <li><a href="#quien-soy">Volver arriba</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ✏️ AVISO LEGAL (edita con tus datos reales) -->
+  <dialog id="legalDialog" aria-labelledby="legalTitle">
+    <h2 id="legalTitle">Aviso legal</h2>
+    <p><strong>Titular:</strong> Cristina Ceccarelli · Nº de colegiada: [indicar] · Ilustre Colegio de Abogados de Sevilla.</p>
+    <p><strong>Domicilio:</strong> Calle Virgen del Valle, 6, Los Remedios, Sevilla.</p>
+    <p><strong>Contacto:</strong> Cristinaceabogada@gmail.com · +34 600 000 000</p>
+    <p>Los contenidos de esta web tienen carácter informativo y no constituyen asesoramiento jurídico. El envío de un correo o una llamada no crea por sí solo una relación abogado-cliente.</p>
+    <button type="button" id="closeLegal">Cerrar</button>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
