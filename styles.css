@@ -8,8 +8,8 @@
    Si el archivo .ttf no existe, el navegador usa 'Great Vibes'.
    ========================================================== */
 @font-face {
-  font-family: 'Brittany Signature';
-  src: url('fonts/brittany-signature.ttf') format('truetype');
+  font-family: 'Higuen Serif';
+  src: url('fonts/Higuen Serif.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
