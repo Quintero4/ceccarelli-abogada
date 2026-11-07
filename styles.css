@@ -504,7 +504,7 @@ dialog button:hover { background: var(--gold); color: #0D0D0D; }
   .nav-toggle { display: block; }
   .main-nav {
     position: fixed; top: var(--header-h); left: 0; right: 0;
-    background: rgba(13, 13, 13, .98);
+    background: #fdfaf5;
     border-bottom: 1px solid rgba(212, 175, 55, .3);
     max-height: 0; overflow: hidden;
     transition: max-height .4s ease;
