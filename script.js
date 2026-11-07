@@ -54,6 +54,10 @@
       const willFlip = !card.classList.contains('is-flipped');
       cards.forEach(c => c.classList.remove('is-flipped')); // solo una abierta a la vez
       card.classList.toggle('is-flipped', willFlip);
+// ↓↓ AÑADIR: en tablet y móvil, al abrir, centra la tarjeta cuando termina la animación
+if (willFlip && window.matchMedia('(max-width: 1099px)').matches) {
+  setTimeout(() => card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' }), 720);
+}
     });
   });
   cards.forEach(card => {
