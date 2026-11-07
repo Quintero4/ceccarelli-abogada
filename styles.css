@@ -533,3 +533,89 @@ dialog button:hover { background: var(--gold); color: #0D0D0D; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+/* ==========================================================
+   6c. TARJETAS EN PILA VERTICAL (tablet y móvil, menos de 1100px)
+   Versión vertical del efecto abanico del ordenador:
+   · Las tarjetas se apilan solapadas; cerradas solo muestran su franja
+     (icono + título + flecha).
+   · Al tocar una, crece, se voltea y muestra su información; las de
+     debajo bajan solas para dejarle sitio.
+   · Solo hay una abierta a la vez (lo controla script.js).
+
+   ⚠️ PEGAR AL FINAL DEL ARCHIVO styles.css (después de la sección 10),
+      para que gane a las reglas responsive anteriores.
+   ========================================================== */
+@media (max-width: 1099px) {
+
+  .cards-grid {
+    --strip: 92px;        /* alto visible de cada tarjeta cerrada */
+    --card-h: 440px;      /* alto de cada tarjeta abierta */
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 560px;     /* en tablet no se estiran demasiado */
+    margin-inline: auto;
+  }
+
+  .cards-grid .flip-card,
+  .cards-grid .flip-card:last-child {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    grid-column: auto;
+    justify-self: auto;
+    height: var(--strip);             /* cerrada: solo la franja */
+    margin-top: -16px;                /* se solapa con la anterior (efecto pila) */
+    transition: height .7s ease-in-out, margin-top .7s ease-in-out;
+  }
+  .cards-grid .flip-card:first-child { margin-top: 0; }
+
+  /* Abierta: crece hasta mostrar toda la información; la siguiente baja sola */
+  .cards-grid .flip-card.is-flipped { height: var(--card-h); }
+  .cards-grid .flip-card.is-flipped + .flip-card { margin-top: 12px; }
+
+  /* Aquí no se abre con el ratón (haría saltar la pila): solo al tocar o con teclado */
+  .cards-grid .flip-card:hover .flip-inner { transform: none; }
+  .cards-grid .flip-card.is-flipped .flip-inner,
+  .cards-grid .flip-card.is-flipped:hover .flip-inner { transform: rotateY(180deg); }
+
+  /* ---------- Aspecto ---------- */
+  .flip-face { border-radius: 14px; border-color: rgba(212, 175, 55, .38); overflow: hidden; }
+
+  /* Frente: icono a la izquierda, título a su lado, flecha a la derecha */
+  .flip-front {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: calc(var(--strip) - 16px);   /* centra el contenido en la parte que queda visible */
+    align-content: start;
+    align-items: center;
+    justify-content: stretch;
+    column-gap: 1rem;
+    padding: 0 3rem 0 1.4rem;
+    text-align: left;
+    box-shadow: 0 -10px 22px -12px rgba(0, 0, 0, .25);   /* sombra sobre la tarjeta anterior */
+  }
+  .flip-front .icon { width: 36px; height: 36px; margin: 0; justify-self: center; }
+  .flip-front h3 { font-size: 1.05rem; letter-spacing: .06em; line-height: 1.3; }
+  .flip-front .hint { display: none; }
+  .flip-front::after {                                     /* flecha: indica que se puede abrir */
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: calc((var(--strip) - 16px) / 2 - 6px);
+    width: 9px; height: 9px;
+    border-right: 1.5px solid var(--gold);
+    border-bottom: 1.5px solid var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* Reverso: la información ocupa toda la tarjeta */
+  .flip-back { padding: 1.5rem 1.35rem; justify-content: safe center; }
+  .flip-back h3 { font-size: 1.05rem; margin-bottom: .75rem; }
+}
+
+/* Móviles muy estrechos (320-360px): la información necesita algo más de alto */
+@media (max-width: 360px) {
+  .cards-grid { --card-h: 500px; }
+}
