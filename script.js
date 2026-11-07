@@ -83,7 +83,7 @@
     if (img.complete && img.naturalWidth === 0) hide();
     img.addEventListener('error', hide);
   }
-  hideIfBroken(document.querySelector('.brand-logo'), 'display', 'none');
+  hideIfBroken(document.querySelector('.brand-  '), 'display', 'none');
   hideIfBroken(document.querySelector('.photo-frame img'), 'opacity', '0');
 
 })();
