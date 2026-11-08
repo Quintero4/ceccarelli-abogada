@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Cinzel Local';
+  src: url('fonts/Cinzel-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============================================================
    styles.css · Cristina Ceccarelli – Abogada · abogadacristinac.com
    Los colores y fuentes se editan en el bloque :root (sección 2).
@@ -24,7 +32,7 @@
   --card: #F0EBE2;
   --text: #000000;
   --text-soft: rgba(15, 9, 9, 0.72);
-  --gold: #D4AF37;
+  --gold: #ae9467;
   --gold-light: #E6CA65;
   --gold-dark: #997A15;
   --gold-gradient: linear-gradient(135deg, #E6CA65 0%, #D4AF37 50%, #997A15 100%);
@@ -108,6 +116,7 @@ section:nth-of-type(even) { background: var(--bg-alt); }
   margin-left: -.3em;
 }
 .brand-role {
+  font-family: 'Cinzel Local', 'Cinzel', serif;
   font-size: .62rem;
   font-weight: 600;
   letter-spacing: .5em;
@@ -173,7 +182,7 @@ section:nth-of-type(even) { background: var(--bg-alt); }
   margin-bottom: .2rem;
 }
 .about-text .lead {
-  font-family: var(--font-title);
+  font-family: 'Cinzel Local', 'Cinzel', serif;
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: .12em;
@@ -618,4 +627,18 @@ dialog button:hover { background: var(--gold); color: #0D0D0D; }
 /* Móviles muy estrechos (320-360px): la información necesita algo más de alto */
 @media (max-width: 360px) {
   .cards-grid { --card-h: 500px; }
+}
+.about-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.titulo-abogada {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: 36px;
+    letter-spacing: 12px;
+    color: #ad9261;
 }
