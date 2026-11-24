@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abogadacristinac.com/sitemap.xml
+Sitemap: https://ceccarelliabogada.com/sitemap.xml
