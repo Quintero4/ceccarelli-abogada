@@ -8,3 +8,4 @@ wrangler.toml
 node_modules
 README.md
 indexcompl.html
+wrangler.jsonc
