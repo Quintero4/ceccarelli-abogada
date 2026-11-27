@@ -69,10 +69,16 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LegalService",
+  "@type": ["Attorney", "LegalService"],
+  "@id": "https://ceccarelliabogada.com/#abogada",
   "name": "Cristina Ceccarelli - Abogada",
+  "alternateName": "Cristina Ceccarelli Abogada",
   "url": "https://ceccarelliabogada.com/",
+  "logo": "https://ceccarelliabogada.com/images/logo-balanza.png",
+  "image": "https://ceccarelliabogada.com/images/foto-cristina.png",
+  "description": "Despacho de abogada en Los Remedios (Sevilla) especializado en derecho civil, extranjería e inmigración, responsabilidad civil, derecho bancario y de consumo y derecho laboral.",
   "telephone": "+34614848281",
+  "email": "cristina@ceccarelliabogada.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Calle Virgen del Valle, 6, Portal B-C",
@@ -81,28 +87,90 @@
     "postalCode": "41011",
     "addressCountry": "ES"
   },
+  "hasMap": "https://www.google.com/maps?q=Calle+Virgen+del+Valle,+6,+Portal+B-C,+41011+Sevilla",
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Sevilla"
-    },
-    {
-      "@type": "Country",
-      "name": "España"
-    }
+    { "@type": "City", "name": "Sevilla" },
+    { "@type": "AdministrativeArea", "name": "Provincia de Sevilla" },
+    { "@type": "Country", "name": "España" }
   ],
+  "availableLanguage": ["es"],
   "knowsAbout": [
     "Derecho Civil",
     "Extranjería e Inmigración",
     "Responsabilidad Civil",
     "Derecho Bancario y de Consumo",
-    "Derecho Laboral"
+    "Derecho laboral"
   ],
   "sameAs": [
     "https://www.instagram.com/cristinaceccarelli.abogada/",
     "https://www.tiktok.com/@cristinaceccarelli",
-    "https://www.linkedin.com/in/cristina-ceccarelli/"
-  ]
+    "https://www.linkedin.com/in/cristina-ceccarelli-412370138/"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Áreas de práctica",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Derecho Civil",
+          "description": "Arrendamientos urbanos, reclamaciones de cantidad, incumplimientos contractuales, resolución y rescisión de contratos, negociación extrajudicial, procedimientos judiciales civiles y sucesiones y herencias."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Extranjería e Inmigración",
+          "description": "Autorizaciones de residencia y trabajo, regularizaciones extraordinarias, arraigo social, sociolaboral y socioformativo, familiares de ciudadanos españoles, nacionalidad española, estudios, residencia no lucrativa, nómadas digitales y recursos."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Responsabilidad Civil",
+          "description": "Accidentes de tráfico, negligencias médicas, reclamaciones a aseguradoras, indemnizaciones por lesiones temporales y secuelas, daños y perjuicios y procedimientos judiciales."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Derecho Bancario y de Consumo",
+          "description": "Cláusulas abusivas, cláusulas suelo, gastos hipotecarios, reclamaciones a entidades financieras, defensa de consumidores y usuarios y reclamaciones por productos y servicios bancarios."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Derecho laboral",
+          "description": "Despidos y extinciones contractuales, reclamaciones de cantidad, derechos y condiciones laborales, conciliaciones, procedimientos laborales y asesoramiento a trabajadores."
+        }
+      }
+    ]
+  }
 }
 </script>
 
